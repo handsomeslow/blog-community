@@ -1,24 +1,5 @@
 # Blog
 
-[我的阿里云栖博客](https://yq.aliyun.com/users/1314387063968361)
-
-[本代码搭建的博客](https://www.mumuimp.com)
-
-交流QQ群：428812779
-## 文章列表
-
-[基于阿里的Node全栈之路（一）部署Docker](https://www.mumuimp.com/show_topic/59ecb524925e2a0026cb86e8)
-
-[基于阿里的Node全栈之路（二）阿里负载均衡的HTTPS优化方案](https://www.mumuimp.com/show_topic/59ecb518925e2a0026cb86e7)
-
-[基于阿里的Node全栈之路（三）利用阿里云OSS实现前后端分离](https://www.mumuimp.com/show_topic/59ecb50c925e2a0026cb86e6)
-
-[基于阿里的Node全栈之路（四）前后端分离进阶-自动上传前端代码到OSS](https://www.mumuimp.com/show_topic/59ecb4ff925e2a0026cb86e5)
-
-[基于阿里的Node全栈之路（五）前后端分离进阶-接口篇](https://www.mumuimp.com/show_topic/59ecb4f2925e2a0026cb86e4)
-
-[基于阿里的Node全栈之路（六）专有网络VPC的应用](https://www.mumuimp.com/show_topic/59ecb524925e2a0026cb86e8)
-
 ## 项目部署
 项目分为两部分，前端[www]和后端[api]，同时部署也是分开的。
 依赖：
@@ -93,44 +74,6 @@ npm install & npm run dev
 # or
 yarn install & yarn run dev
 ```
-
-其实这些参数是可以在系统的环境变量中设置的。
-Windows： 参照java环境变量设置，在环境变量中添加blog_host环境变量.（建议在用户变量中添加）
-Linux & Mac： 直接在.bashrc或者.bash_profile添加环境变量.
-
------------------
-![_1_](http://www.mumuimp.com/upload/path.jpg)
-------------------
-当然！你也可以直接改了它！;)
-
-
-## 项目发布
-#### Docker部署api
-具体参照[基于阿里的Node全栈之路（一）部署Docker](https://www.mumuimp.com/show_topic/59ecb524925e2a0026cb86e8)
-
-#### 阿里云OSS部署web
-创建index.js，具体代码可以参考index-example.js，并填写好你自己的参数：
-```javascript
-const store = oss({
-  accessKeyId: '< your accessKeyId>',
-  accessKeySecret: '< your accessKeySecret>',
-  bucket: '< your bucket>',
-  region: '< your region>',
-});
-```
-最后，
-```shell
-yarn run publish
-```
-
-友情推荐：
-
-一个好用的[接口管理平台](https://github.com/YMFE/yapi)，支持本地部署，开源MIT，去哪儿前端大神团队开发。
-
-亲情推荐：
-
-[egg-tablestore](https://github.com/mumudev/egg-tablestore)，阿里云的tablestore数据库在egg上的插件，为啥亲情推荐呢？因为是我写的, wo lianpi hou.
-
 
 ## License
 
