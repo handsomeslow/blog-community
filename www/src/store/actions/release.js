@@ -15,7 +15,6 @@ export const releaseActions = {
     fetchReleaseAction({ commit, state, dispatch }, params) {
         commit(types.FETCH_RELEASE_REQ);
         axios.post('topic', {
-            accesstoken: params.accesstoken,
             title: params.title,
             tab: params.tab,
             content: params.content

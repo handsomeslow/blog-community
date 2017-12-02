@@ -38,7 +38,7 @@
                             <br/>
                             <mu-text-field label="密码" type="password" labelFloat name="password" />
                             <br/>
-                            <mu-text-field label="重复密码" type="passwordcheck" labelFloat name="passwordcheck" />
+                            <mu-text-field label="重复密码" type="password" labelFloat name="passwordcheck" />
                             <br/>
                             <div class="btn-radius" @click="tabToRegister">注册</div>
                         </form>
@@ -48,24 +48,6 @@
                     </div>
                 </mu-flexbox>
 
-                <!--tip-->
-                <!-- <div class="tip">
-                                                    <mu-flexbox class="question">
-                                                        <mu-icon value="help"
-                                                                 :size="18"
-                                                                 color="#e96900"></mu-icon>
-                                                        <p @click="tapToToggleTip">如何获取 accessToken？</p>
-                                                    </mu-flexbox>
-                                    
-                                                    <transition enter-active-class="animated flipInX"
-                                                                leave-active-class="animated flipOutX">
-                                                        <div class="content"
-                                                             v-show="isTipShow">
-                                                            <a href="https://www.vue-js.com/">官方网站</a> 登录后，在设置页面可以看到自己的 <b>accessToken</b>。<br/>
-                                                            将 <b>accessToken</b> 复制，粘贴到⬆文本框，即可登录。
-                                                        </div>
-                                                    </transition>    
-                                                </div> -->
             </mu-flexbox>
             <!--log in-->
 

@@ -5,7 +5,7 @@
         <!--dialog-->
 
         <!--Edit page-->
-        <transition enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <editPage v-show="edit_page_show" @cancel="cancelEdit" @save="saveEdit"></editPage>
         </transition>
         <!--edit page-->
@@ -24,24 +24,22 @@
         <mu-flexbox-item class="edit" v-if="activeTab === 'edit'">
             <!--Text Block-->
             <mu-flexbox class="textblock" orient="vertical" align="center">
+                <!--title field-->
+                <mu-text-field v-model="title" label="标题" hintText="8个字符以上" :fullWidth="true" labelFocusClass="label-focus" underlineFocusClass="underline-focus" />
                 <!--type select field-->
-                <mu-select-field v-model="tab" :fullWidth="true" label="选择模块" labelFocusClass="label-focus" underlineFocusClass="underline-focus">
+                <mu-select-field v-model="tab" :fullWidth="true" label="选择板块" labelFocusClass="label-focus" underlineFocusClass="underline-focus">
                     <mu-menu-item value="爆料" title="爆料" />
                     <mu-menu-item value="问答" title="问答" />
                     <mu-menu-item value="分享" title="分享" />
                     <mu-menu-item value="招聘" title="招聘" />
-
                 </mu-select-field>
-
-                <!--title field-->
-                <mu-text-field v-model="title" label="标题" hintText="8个字符以上" :fullWidth="true" labelFocusClass="label-focus" underlineFocusClass="underline-focus" />
 
                 <!--Edit-->
                 <mu-flexbox-item class="edit_content">
                     <mu-text-field v-model="content" label="正文" hintText="建议使用 Markdown 语法" multiLine :rows="10" :rowsMax="12" :fullWidth="true" labelFocusClass="label-focus" underlineFocusClass="underline-focus" />
                 </mu-flexbox-item>
                 <!--btn-->
-                <mu-flat-button class="button-release" @click="tapToRelease">{{release.isReleaseFetching?'发布中':'发布'}}
+                <mu-flat-button class="btn-radius" @click="tapToRelease">{{release.isReleaseFetching?'发布中':'发布'}}
                 </mu-flat-button>
             </mu-flexbox>
             <!--text block-->
@@ -71,7 +69,7 @@ export default {
     },
     computed: {
         ...mapState([
-            'login',
+            'user',
             'release'
         ]),
         markedContent() {
@@ -102,8 +100,7 @@ export default {
         // 点击发布话题
         // ==========
         tapToRelease() {
-            let accesstoken = getCookie('accesstoken'),
-                tab = this.tab,
+            let tab = this.tab,
                 title = this.title,
                 content = this.markedContent,
                 SucMsg = '发布成功',
@@ -124,7 +121,7 @@ export default {
 
             // 发送请求
             this.$store.dispatch('fetchReleaseAction', {
-                accesstoken, title, tab, content, SucMsg, ErrMsg
+                title, tab, content, SucMsg, ErrMsg
             })
         },
         // dialog 显示
@@ -204,6 +201,11 @@ export default {
     }
     .button-release {
         margin-top: .54rem;
+    }
+    .btn-radius {
+        background: $primary;
+        border-radius: 4px;
+        color: #fff;
     }
     .preview {
         width: 100%;

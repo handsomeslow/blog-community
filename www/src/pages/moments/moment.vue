@@ -8,26 +8,7 @@
     </transition>
     <!--info page-->
   
-    <!--Tabs-->
-    <div class="tabs-wrapper">
-      <mu-tabs :value="activeTab"
-               lineClass="active-line"
-               @change="handleTabChange">
-        <mu-tab value="all"
-                title="全部" />
-        <mu-tab value="toutiao"
-                title="头条" />
-        <mu-tab value="baoliao"
-                title="爆料" />
-        <mu-tab value="share"
-                title="分享"></mu-tab>
-        <mu-tab value="ask"
-                title="问答"></mu-tab>
-        <mu-tab value="job"
-                title="招聘"></mu-tab>
-      </mu-tabs>
-    </div>
-    <!--tabs-->
+
   
     <!--Refresh Control-->
     <mu-refresh-control :refreshing="common.refresh.isShow"
@@ -37,10 +18,10 @@
 
     <!--Content-->
     <div class="content-wrapper">
-      <content-item v-for="list in topics.data"
+      <moment-item v-for="list in topics.data"
                     :list="list"
                     @info="tapToInfo"
-                    @userInfo="tapToUserInfo"></content-item>
+                    @userInfo="tapToUserInfo"></moment-item>
     </div>
     <!--content-->
   
@@ -65,7 +46,7 @@
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import infoPage from '../../components/infoPage/infoPage'
-import contentItem from '../../components/contentItem/contentItem'
+import momentItem from '../../components/contentItem/momentItem'
 import noMoreData from '../../components/noMoreData/noMoreData'
 export default {
   data () {
@@ -104,7 +85,7 @@ export default {
     }
   },
   components: {
-    contentItem,
+    momentItem,
     noMoreData,
     infoPage
   },

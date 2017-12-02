@@ -27,6 +27,6 @@ export const filterTime =  (val) => {
                 return diffDays + '天前'
             }
             if (diffDays > 20) {
-                return year + '-' + month + '-' + date
+                return year + '年' + month + '月' + date + '日'
             }
         }

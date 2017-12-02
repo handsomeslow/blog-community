@@ -5,6 +5,7 @@ import user from '../pages/user/user.vue'
 import register from '../pages/register/register.vue'
 import usertopics from '../pages/user/children/usertopics/usertopics.vue'
 import message from '../pages/message/message.vue'
+import moments from '../pages/moments/moment.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ const routes = [
     name: 'message',
     path: '/message/:title',
     component: message
+  },
+  ,
+  {
+    name: 'moment',
+    path: '/moment/:title',
+    component: moments
   }
 ]
 

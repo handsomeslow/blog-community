@@ -18,7 +18,7 @@ export const topicsActions = {
         } else {
             commit(types.SHOW_REFRESH);
         };
-
+        
         axios({
             method: 'get',
             url: 'topic',

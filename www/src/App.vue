@@ -29,6 +29,8 @@ import bottomnav from './components/bottomnav/bottomnav'
 import releasePage from './components/releasePage/releasePage'
 export default {
   async created() {
+    //console.log('created')
+    //const session = await this.$get('session', {}, false);
     // 获取seecion
     this.$store.dispatch('fetchUserSessionAction');
   },

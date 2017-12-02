@@ -20,6 +20,14 @@
         <div class="message-count"
              v-if="HAS_NOT_READ_MESSAGES_COUNT > 0">{{HAS_NOT_READ_MESSAGES_COUNT}}</div>
       </mu-bottom-nav-item> -->
+            <mu-bottom-nav-item value="moment"
+                          titleClass="title"
+                          iconClass="icon"
+                          activeClass="active"
+                          to="/moment/个人信息"
+                          title="圈子"
+                          icon="drafts" />
+
       <mu-bottom-nav-item value="user"
                           titleClass="title"
                           iconClass="icon"

@@ -137,10 +137,9 @@ export default {
             font-weight: bold;
         }
         .content {
-            margin-top: -.12rem;
+            margin-top: .06rem;
         }
         .reply-time {
-            margin-top: .12rem;
             font-size: .2rem;
             color: lighten($ExtraLightBlack, 20%);
         }
