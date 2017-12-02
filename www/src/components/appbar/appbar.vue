@@ -7,7 +7,7 @@
     </div>
     <mu-flat-button label="发布"
                     slot="right"
-                    v-show="false"
+                    v-show="user.userinfo.username==='junge'"
                     @click="tapToRelease"></mu-flat-button>
   </mu-appbar>
 </template>

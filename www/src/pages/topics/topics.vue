@@ -168,14 +168,22 @@ export default {
     loadMore () {
       if (!this.topics.isFetching && !this.topics.noMoreData) {
         this.page += 1;
-        this.http(this.activeTab, this.page, 20);
+        var tabname = this.activeTab;
+        if(tabname==='all') {
+          tabname = null;
+        }
+        this.http(tabname, this.page, 20);
       }
     },
     // 下拉刷新
     // =======
     refresh () {
       this.CLEAR_STATE_DATA();
-      this.http(this.activeTab, 0, 20, true);
+      var tabname = this.activeTab;
+      if(tabname==='all') {
+        tabname = null;
+      }
+      this.http(tabname, 1, 20, true);
       this.page = 1;
     },
     // 跳转详情页

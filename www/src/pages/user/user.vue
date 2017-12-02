@@ -38,7 +38,7 @@
                             <br/>
                             <mu-text-field label="密码" type="password" labelFloat name="password" />
                             <br/>
-                            <mu-text-field label="重复密码" type="passwordcheck" labelFloat name="passwordcheck" />
+                            <mu-text-field label="重复密码" type="password" labelFloat name="passwordcheck" />
                             <br/>
                             <div class="btn-radius" @click="tabToRegister">注册</div>
                         </form>
