@@ -2,7 +2,7 @@
   <mu-appbar :zDepth="0">
     <!--logo-->
     <div class="logo">
-      <img src="../../assets/images/logo_coder.png"
+      <img src="../../assets/images/logo_coder1.png"
            alt="">
     </div>
     <mu-flat-button label="发布"
