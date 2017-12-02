@@ -2,11 +2,12 @@
   <mu-appbar :zDepth="0">
     <!--logo-->
     <div class="logo">
-      <img src="../../assets/images/emoj.png"
+      <img src="../../assets/images/logo_coder.png"
            alt="">
     </div>
     <mu-flat-button label="发布"
                     slot="right"
+                    v-show="false"
                     @click="tapToRelease"></mu-flat-button>
   </mu-appbar>
 </template>
@@ -61,14 +62,14 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
-    width: 48px;
+    width: 100px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-      width: 30px;
-      height: 30px;
+      width: 100px;
+      height: 35px;
     }
   }
 }

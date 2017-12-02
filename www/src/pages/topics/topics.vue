@@ -14,16 +14,16 @@
                @change="handleTabChange">
         <mu-tab value="all"
                 title="全部" />
-        <mu-tab value="toutiao"
-                title="头条" />
-        <mu-tab value="baoliao"
-                title="爆料" />
-        <mu-tab value="share"
-                title="分享"></mu-tab>
-        <mu-tab value="ask"
-                title="问答"></mu-tab>
-        <mu-tab value="job"
-                title="招聘"></mu-tab>
+        <mu-tab value="android"
+                title="android" />
+        <mu-tab value="ios"
+                title="iOS" />
+        <mu-tab value="web"
+                title="前端"></mu-tab>
+        <mu-tab value="python"
+                title="python"></mu-tab>
+        <mu-tab value="nodejs"
+                title="nodejs"></mu-tab>
       </mu-tabs>
     </div>
     <!--tabs-->
@@ -139,20 +139,20 @@ export default {
         case 'all':
           this.http(null, 1, 20);
           break;
-        case 'toutiao':
-          this.http('头条', 1, 20);
+        case 'android':
+          this.http('android', 1, 20);
           break;
-        case 'baoliao':
-          this.http('爆料', 1, 20);
+        case 'ios':
+          this.http('ios', 1, 20);
           break;
-        case 'share':
-          this.http('分享', 1, 20);
+        case 'web':
+          this.http('前端', 1, 20);
           break;
-        case 'ask':
-          this.http('问答', 1, 20);
+        case 'python':
+          this.http('python', 1, 20);
           break;
-        case 'job':
-          this.http('招聘', 1, 20);
+        case 'nodejs':
+          this.http('nodejs', 1, 20);
           break;
       }
     },
