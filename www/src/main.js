@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 
 // axios
 import axios from 'axios'
-axios.defaults.baseURL = 'http://47.100.11.14:7001/blog/v1/'   // base url
+axios.defaults.baseURL = 'http://localhost:7001/blog/v1/'   // base url
 axios.defaults.withCredentials = true;
 // import css
 import './assets/css/material-icons.css'     // material-icons.css

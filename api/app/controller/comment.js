@@ -4,6 +4,10 @@ const BaseController = require('egg').Controller;
 class Controller extends BaseController {
   * index() {
     const { ctx, service } = this;
+    // 权限控制，不允许普通用户拉去全部评论
+    if (ctx.session.user.level < 2) {
+        return ctx.fail(0);
+    }
     const query = ctx.request.query;
     const models = yield service.comment.getAll(query);
     ctx.done(models);
@@ -28,10 +32,13 @@ class Controller extends BaseController {
   * destroy() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    const model = yield service.comment.getById(id);
-    if (!ctx.user_id || ctx.user_id !== model.owner.toString()) {
-      return ctx.fail(0, '麻烦登陆一下！');
+    if (ctx.session.user.level < 2) {
+      const model = yield service.comment.getById(id);
+      if (model.owner != null && ctx.user_id !== model.owner.toString()) {
+        return ctx.fail(0, '麻烦登陆一下！');
+      }
     }
+
     yield service.comment.deleteById(id);
     ctx.done();
   }

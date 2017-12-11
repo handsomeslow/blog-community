@@ -13,7 +13,8 @@ module.exports = app => {
       avatar_url: { type: String, default:'https://dn-ynhurit3.qbox.me/d6b15b52f814f3031e61.jpg' },
       status: { type: Boolean, default: true },
       collect_topics:[{type: ObjectId, ref: 'topic'}],
-      post_topics:[{type: ObjectId, ref: 'topic' }]
+      post_topics:[{type: ObjectId, ref: 'topic' }],
+      level:{ type: Number, default: 0 }
     },
     { timestamps: true }
   );

@@ -26,11 +26,11 @@
             <mu-flexbox class="textblock" orient="vertical" align="center">
                 <!--type select field-->
                 <mu-select-field v-model="tab" :fullWidth="true" label="选择模块" labelFocusClass="label-focus" underlineFocusClass="underline-focus">
-                    <mu-menu-item value="爆料" title="爆料" />
-                    <mu-menu-item value="问答" title="问答" />
-                    <mu-menu-item value="分享" title="分享" />
-                    <mu-menu-item value="招聘" title="招聘" />
-
+                    <mu-menu-item value="android" title="android" />
+                    <mu-menu-item value="ios" title="iOS" />
+                    <mu-menu-item value="python" title="python" />
+                    <mu-menu-item value="web" title="前端" />
+                    <mu-menu-item value="nodejs" title="nodejs" />
                 </mu-select-field>
 
                 <!--title field-->

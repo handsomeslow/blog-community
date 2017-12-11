@@ -40,9 +40,11 @@ class Controller extends BaseController {
   * destroy() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    const model = yield service.topic.getById(id);
-    if (model.owner._id.toString() !== ctx.user_id) {
-      return ctx.fail(0);
+    if (ctx.session.user.level < 2) {
+      const model = yield service.topic.getById(id);
+      if (model.owner != null && model.owner._id.toString() !== ctx.user_id) {
+        return ctx.fail(0, '麻烦登陆一下！');
+      }
     }
     yield service.topic.deleteById(id);
     ctx.done();

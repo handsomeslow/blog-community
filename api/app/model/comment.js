@@ -1,4 +1,6 @@
 'use strict';
+const mongoosePaginate = require('mongoose-paginate');
+
 module.exports = app => {
   const mongoose = app.mongoose;
   const ObjectId = mongoose.Schema.Types.ObjectId;
@@ -12,5 +14,6 @@ module.exports = app => {
     },
     { timestamps: true }
   );
+  Schema.plugin(mongoosePaginate);
   return mongoose.model('comment', Schema);
 };

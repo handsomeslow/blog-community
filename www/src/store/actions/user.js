@@ -102,24 +102,32 @@ export const userActions = {
             username: params.username,
             password: params.password
         }).then((res) => {
-            dispatch('showSnackbarAction', {
-                msg: '注册成功',
-                isWarn: false
-            });
-
-            // 提交获取的数据
-            commit(types.FETCH_USER_SUC, {
-                data: res.data
-            });
-
-            commit(types.COMMIT_USERINFO, {
-                data: res.data.data
-            });
-
-            dispatch('loginAction', {
-                username: params.username,
-                password: params.password
-            });
+            if(res.data.code == 1) {
+                dispatch('showSnackbarAction', {
+                    msg: '注册成功',
+                    isWarn: false
+                });
+    
+                // 提交获取的数据
+                commit(types.FETCH_USER_SUC, {
+                    data: res.data
+                });
+    
+                commit(types.COMMIT_USERINFO, {
+                    data: res.data.data
+                });
+    
+                dispatch('loginAction', {
+                    username: params.username,
+                    password: params.password
+                });
+            } else {
+                dispatch('showSnackbarAction', {
+                    msg: '注册失败',
+                    isWarn: true
+                });
+            }
+            
         })
     },
     loginout({ commit, state, dispatch }) {

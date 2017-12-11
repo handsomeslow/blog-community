@@ -8,7 +8,7 @@ module.exports = app => {
     async login({ username, password }) {
       const model = await this.model.findOne(
         { username, password },
-        { username: 1, avatar_url: 1, motto: 1, status: 1, phone: 1 }
+        { username: 1, avatar_url: 1, motto: 1, status: 1, phone: 1 , level: 1 }
       );
       return model;
     }
