@@ -26,11 +26,10 @@
             <mu-flexbox class="textblock" orient="vertical" align="center">
                 <!--type select field-->
                 <mu-select-field v-model="tab" :fullWidth="true" label="选择模块" labelFocusClass="label-focus" underlineFocusClass="underline-focus">
-                    <mu-menu-item value="android" title="android" />
-                    <mu-menu-item value="ios" title="iOS" />
-                    <mu-menu-item value="python" title="python" />
-                    <mu-menu-item value="web" title="前端" />
-                    <mu-menu-item value="nodejs" title="nodejs" />
+                    <mu-menu-item value="我要爆料" title="我要爆料" />
+                    <mu-menu-item value="情感交友" title="情感交友" />
+                    <mu-menu-item value="招聘招工" title="招聘招工" />
+                    <mu-menu-item value="问题求助" title="问题求助" />
                 </mu-select-field>
 
                 <!--title field-->
@@ -41,8 +40,7 @@
                     <mu-text-field v-model="content" label="正文" hintText="建议使用 Markdown 语法" multiLine :rows="10" :rowsMax="12" :fullWidth="true" labelFocusClass="label-focus" underlineFocusClass="underline-focus" />
                 </mu-flexbox-item>
                 <!--btn-->
-                <mu-flat-button class="button-release" @click="tapToRelease">{{release.isReleaseFetching?'发布中':'发布'}}
-                </mu-flat-button>
+                <div class="btn-radius" @click="tapToRelease">{{release.isReleaseFetching?'发布中':'发布'}}</div>
             </mu-flexbox>
             <!--text block-->
         </mu-flexbox-item>
@@ -53,7 +51,6 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import { getCookie } from '../../assets/js/cookies.js'
 import tipdialog from '../../components/tipdialog/tipdialog'
 import editPage from './editPage/editPage'
 import marked from 'marked'
@@ -102,8 +99,7 @@ export default {
         // 点击发布话题
         // ==========
         tapToRelease() {
-            let accesstoken = getCookie('accesstoken'),
-                tab = this.tab,
+            let tab = this.tab,
                 title = this.title,
                 content = this.markedContent,
                 SucMsg = '发布成功',
@@ -126,6 +122,9 @@ export default {
             this.$store.dispatch('fetchReleaseAction', {
                 accesstoken, title, tab, content, SucMsg, ErrMsg
             })
+        },
+        tapAddImageFile() {
+            
         },
         // dialog 显示
         open(text) {
@@ -153,6 +152,18 @@ export default {
 
 <style lang="scss">
 @import '../../assets/sass/_base.scss';
+.btn-radius {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: $primary !important;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50px;
+}
+
 .releasePage {
     position: fixed;
     top: 0;

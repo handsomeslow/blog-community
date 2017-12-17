@@ -9,10 +9,12 @@ import message from './modules/message'
 import release from './modules/release'
 import common from './modules/common'
 import user from './modules/user'
+import news from './modules/news'
 
 const store = new Vuex.Store({
     modules: {
         topics,
+        news,
         info,
         login,
         message,

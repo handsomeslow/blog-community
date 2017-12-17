@@ -3,13 +3,21 @@
     <mu-bottom-nav :value="common.bottomnav.active"
                    shift
                    @change="handleChange">
+      <mu-bottom-nav-item value="news"
+                          titleClass="title"
+                          iconClass="icon"
+                          activeClass="active"
+                          to="/news/头条"
+                          title="头条"
+                          icon="whatshot" />
+
       <mu-bottom-nav-item value="topics"
                           titleClass="title"
                           iconClass="icon"
                           activeClass="active"
                           to="/topics/话题"
                           title="话题"
-                          icon="whatshot" />
+                          icon="books" />
       <!-- <mu-bottom-nav-item value="message"
                           titleClass="title"
                           iconClass="icon"

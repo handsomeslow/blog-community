@@ -15,4 +15,7 @@ module.exports = app => {
   app.resources('blog_api.topic', '/blog/v1/topic', 'topic');
   app.get('blog_api.topic.collect', '/blog/v1/topic/collect', app.controller.user.collect);
   app.get('blog_api.topic.collect', '/blog/v1/topic/decollect', app.controller.user.decollect);
+
+  // news
+  app.resources('blog_api.news', '/blog/v1/news', 'news');
 };

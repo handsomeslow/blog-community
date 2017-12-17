@@ -14,16 +14,14 @@
                @change="handleTabChange">
         <mu-tab value="all"
                 title="全部" />
-        <mu-tab value="android"
-                title="android" />
-        <mu-tab value="ios"
-                title="iOS" />
-        <mu-tab value="web"
-                title="前端"></mu-tab>
-        <mu-tab value="python"
-                title="python"></mu-tab>
-        <mu-tab value="nodejs"
-                title="nodejs"></mu-tab>
+        <mu-tab value="我要爆料"
+                title="我要爆料" />
+        <mu-tab value="情感交友"
+                title="情感交友" />
+        <mu-tab value="招聘招工"
+                title="招聘招工" />
+        <mu-tab value="问题求助"
+                title="问题求助" />
       </mu-tabs>
     </div>
     <!--tabs-->

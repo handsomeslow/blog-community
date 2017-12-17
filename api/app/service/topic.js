@@ -15,7 +15,7 @@ module.exports = app => {
       const models = await this.model.paginate(query, {
         select: { title: 1, view_count: 1, comment_count: 1, like_count: 1, owner: 1, tab: 1, updatedAt: 1, createdAt: 1 },
         populate: [
-          { path: 'owner', select: 'username  avatar_url' },
+          { path: 'owner', select: 'username avatar_url' },
         ],
         sort: { createdAt: -1 },
         page,
