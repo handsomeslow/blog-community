@@ -28,7 +28,6 @@
                 <mu-select-field v-model="tab" :fullWidth="true" label="选择模块" labelFocusClass="label-focus" underlineFocusClass="underline-focus">
                     <mu-menu-item value="我要爆料" title="我要爆料" />
                     <mu-menu-item value="情感交友" title="情感交友" />
-                    <mu-menu-item value="招聘招工" title="招聘招工" />
                     <mu-menu-item value="问题求助" title="问题求助" />
                 </mu-select-field>
 
@@ -120,7 +119,7 @@ export default {
 
             // 发送请求
             this.$store.dispatch('fetchReleaseAction', {
-                accesstoken, title, tab, content, SucMsg, ErrMsg
+                title, tab, content, SucMsg, ErrMsg
             })
         },
         tapAddImageFile() {

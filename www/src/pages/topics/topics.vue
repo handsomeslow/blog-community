@@ -18,8 +18,6 @@
                 title="我要爆料" />
         <mu-tab value="情感交友"
                 title="情感交友" />
-        <mu-tab value="招聘招工"
-                title="招聘招工" />
         <mu-tab value="问题求助"
                 title="问题求助" />
       </mu-tabs>
@@ -137,20 +135,14 @@ export default {
         case 'all':
           this.http(null, 1, 20);
           break;
-        case 'android':
-          this.http('android', 1, 20);
+        case '我要爆料':
+          this.http('我要爆料', 1, 20);
           break;
-        case 'ios':
-          this.http('ios', 1, 20);
+        case '情感交友':
+          this.http('情感交友', 1, 20);
           break;
-        case 'web':
-          this.http('前端', 1, 20);
-          break;
-        case 'python':
-          this.http('python', 1, 20);
-          break;
-        case 'nodejs':
-          this.http('nodejs', 1, 20);
+        case '问题求助':
+          this.http('问题求助', 1, 20);
           break;
       }
     },
