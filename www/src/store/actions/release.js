@@ -5,7 +5,6 @@ export const releaseActions = {
     /**
      * 发送发布主题请求
      * @type  {post}
-     * @param {accesstoken} [String]
      * @param {title} [String]   主题标题 
      * @param {tab} [String]     主题分类，目前有 ask share job
      * @param {content} [String] 主体内容
@@ -15,7 +14,6 @@ export const releaseActions = {
     fetchReleaseAction({ commit, state, dispatch }, params) {
         commit(types.FETCH_RELEASE_REQ);
         axios.post('topic', {
-            accesstoken: params.accesstoken,
             title: params.title,
             tab: params.tab,
             content: params.content

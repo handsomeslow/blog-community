@@ -29,7 +29,7 @@ module.exports = app => {
       const topic = await this.model.findById(id).populate([
         { path: 'owner', select: 'username  avatar_url' },
       ]);
-      const topic_id = topic._id;
+      const topic_id = id;
       const comments = await this.ctx.model.Comment.find({ topic_id }, { topic_id: 0 }).populate([
         { path: 'owner', select: 'username  avatar_url' },
       ]);
