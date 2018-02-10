@@ -61,5 +61,7 @@
     "type": "git",
     "url": ""
   },
-  "files": ["index.js"]
+  "files": [
+    "index.js"
+  ]
 }
