@@ -43,7 +43,7 @@ class Controller extends BaseController {
     if (ctx.session.user.level < 2) {
       return ctx.fail(0);
     }
-    yield service.news.deleteById(id);     
+    yield service.news.deleteById(id);
     ctx.done();
   }
 

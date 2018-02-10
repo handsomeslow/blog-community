@@ -8,13 +8,17 @@
 
     <!--Tabs-->
     <div class="tabs-wrapper">
-      <mu-tabs :value="activeTab" lineClass="active-line" @change="handleTabChange">
-        <mu-tab value="all" title="全部" />
-        <mu-tab value="android" title="android" />
-        <mu-tab value="ios" title="iOS" />
-        <mu-tab value="web" title="前端"></mu-tab>
-        <mu-tab value="python" title="python"></mu-tab>
-        <mu-tab value="nodejs" title="nodejs"></mu-tab>
+      <mu-tabs :value="activeTab"
+               lineClass="active-line"
+               @change="handleTabChange">
+        <mu-tab value="all"
+                title="全部" />
+        <mu-tab value="我要爆料"
+                title="我要爆料" />
+        <mu-tab value="情感交友"
+                title="情感交友" />
+        <mu-tab value="问题求助"
+                title="问题求助" />
       </mu-tabs>
     </div>
     <!--tabs-->
@@ -127,20 +131,14 @@ export default {
         case 'all':
           this.http(null, 1, 20);
           break;
-        case 'android':
-          this.http('android', 1, 20);
+        case '我要爆料':
+          this.http('我要爆料', 1, 20);
           break;
-        case 'ios':
-          this.http('ios', 1, 20);
+        case '情感交友':
+          this.http('情感交友', 1, 20);
           break;
-        case 'web':
-          this.http('前端', 1, 20);
-          break;
-        case 'python':
-          this.http('python', 1, 20);
-          break;
-        case 'nodejs':
-          this.http('nodejs', 1, 20);
+        case '问题求助':
+          this.http('问题求助', 1, 20);
           break;
       }
     },
