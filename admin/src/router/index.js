@@ -18,6 +18,10 @@ export default new Router({
                     component: resolve => require(['../components/page/Readme.vue'], resolve)
                 },
                 {
+                    path: '/newstable',
+                    component: resolve => require(['../components/page/NewsTable.vue'], resolve)
+                },
+                {
                     path: '/posttable',
                     component: resolve => require(['../components/page/PostTable.vue'], resolve)
                 },
@@ -34,8 +38,8 @@ export default new Router({
                     component: resolve => require(['../components/page/BaseForm.vue'], resolve)
                 },
                 {
-                    path: '/posteditor',
-                    component: resolve => require(['../components/page/PostEditor.vue'], resolve)    // Vue-Quill-Editor组件
+                    path: '/newseditor',
+                    component: resolve => require(['../components/page/NewsEditor.vue'], resolve)    // Vue-Quill-Editor组件
                 },
                 {
                     path: '/markdown',

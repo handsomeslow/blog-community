@@ -2,7 +2,7 @@
   "name": "community",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "木子七 <286073887@qq.com>",
+  "author": "Jun <366459861@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -20,7 +20,10 @@
     "vue": "^2.2.6",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1",
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "ali-oss": "^4.10.0",
+    "co": "^4.6.0",
+    "lrz":"4.9.40"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

@@ -7,21 +7,17 @@ module.exports = app => {
   const Schema = new mongoose.Schema(
     {
       owner: { type: ObjectId, ref: 'user' },
-      owner_id:{type: String },
+      owner_id:{ type: String },
       tab: { type: String },
       title: { type: String },
-      content: { type: String },
+      desc: { type: String },
       like_count: { type: Number, default: 0 },
-      view_count: { type: Number, default: 0 },
-      comment_count: { type: Number, default: 0 },
-      comment: [{ type: ObjectId, ref: 'comment' }],
-      top: { type: Boolean, default: false },
-      good: { type: Boolean, default: false },
       status: { type: Boolean, default: true },
-      is_collected: {type: Boolean, default: false}
+      avatar: { type: String },
+      members: [{ type: ObjectId, ref: 'user' }]
     },
     { timestamps: true }
   );
   Schema.plugin(mongoosePaginate);
-  return mongoose.model('topic', Schema);
+  return mongoose.model('couple', Schema);
 };

@@ -27,3 +27,7 @@ exports.sts = {
   enabled: true,
   package: "egg-oss-sts"
 };
+exports.nunjucks = {
+  enable: true,
+  package: 'egg-view-nunjucks'
+};

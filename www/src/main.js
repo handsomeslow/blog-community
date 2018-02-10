@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 //import Request from '@/plugins/request';
+import lrz from 'lrz'
+import client from './plugins/alioss'
 
 Vue.config.productionTip = false
 
@@ -29,6 +31,7 @@ new Vue({
   el: '#app',  
   store,
   router,
+  client,
   template: '<App/>',
   components: { App }
 })

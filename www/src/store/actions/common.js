@@ -1,4 +1,5 @@
 import * as types from '../constants/types'
+import axios from 'axios'
 
 export const commonActions = {    
     /**
@@ -30,5 +31,15 @@ export const commonActions = {
         setTimeout(() => {
             commit(types.HIDE_SNACK)
         }, 2000);
+    },
+    uploadAction({ commit, state }, params) {
+        axios({
+            method: 'post',
+            url: 'upload'
+        }).then((res) => {
+
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 }

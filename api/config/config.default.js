@@ -17,6 +17,10 @@ module.exports = appInfo => {
       httpOnly: true,
       encrypt: true,
     },
+    bodyParser: {
+      jsonLimit: '1mb',
+      formLimit: '3mb',
+    },
     cors: {
       origin(req) {
         return req.headers.origin;
@@ -38,7 +42,9 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_15011369_7728';
 
   // add your config here
-
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+  };
   return config;
 };
 

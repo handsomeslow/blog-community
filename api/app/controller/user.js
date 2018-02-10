@@ -31,7 +31,7 @@ class Controller extends BaseController {
     const { old_password } = body;
     let model = yield service.user.getById(id);
     if (model.password !== old_password) {
-      return ctx.fail(0, 'password not correct!');
+      return ctx.fail(1002);
     }
     model = yield service.user.updateById(id, body);
     ctx.done();
@@ -47,11 +47,11 @@ class Controller extends BaseController {
     const query = ctx.request.query;
     const id = query.topic_id;
     if (!ctx.user_id) {
-      return ctx.fail(0, '麻烦登录一下！');
+      return ctx.fail(1000);
     }
     let isSuccess = yield service.user.collectTopic(id);
     if (isSuccess) {
-      return ctx.success(1,'收藏成功');
+      return ctx.done('收藏成功');
     } else {
       return ctx.fail(0, '收藏失败');
     }
@@ -63,11 +63,11 @@ class Controller extends BaseController {
     const query = ctx.request.query;
     const id = query.topic_id;
     if (!ctx.user_id) {
-      return ctx.fail(0, '麻烦登录一下！');
+      return ctx.fail(1000);
     }
     let isSuccess = yield service.user.decollectTopic(id);
     if (isSuccess) {
-      return ctx.success(1,'取消收藏成功');
+      return ctx.done('取消收藏成功');
     } else {
       return ctx.fail(0, '取消收藏失败');
     }

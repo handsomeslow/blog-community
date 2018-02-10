@@ -35,6 +35,10 @@
                         title: '表格',
                         subs: [
                             {
+                                index: 'newstable',
+                                title: '资讯列表'
+                            },
+                            {
                                 index: 'posttable',
                                 title: '文章列表'
                             },
@@ -58,7 +62,7 @@
                                 title: '基本表单'
                             },
                             {
-                                index: 'posteditor',
+                                index: 'newseditor',
                                 title: '编辑器'
                             },
                             {

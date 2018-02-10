@@ -8,20 +8,18 @@ module.exports = app => {
     {
       owner: { type: ObjectId, ref: 'user' },
       owner_id:{type: String },
+      couple:{type: ObjectId, ref: 'couple'},
       tab: { type: String },
-      title: { type: String },
       content: { type: String },
       like_count: { type: Number, default: 0 },
-      view_count: { type: Number, default: 0 },
+      likes: [{ type: ObjectId, ref: 'user' }],
       comment_count: { type: Number, default: 0 },
-      comment: [{ type: ObjectId, ref: 'comment' }],
-      top: { type: Boolean, default: false },
-      good: { type: Boolean, default: false },
+      comments: [{ type: ObjectId, ref: 'comment' }],
       status: { type: Boolean, default: true },
-      is_collected: {type: Boolean, default: false}
+      images:[{ type: String }]
     },
     { timestamps: true }
   );
   Schema.plugin(mongoosePaginate);
-  return mongoose.model('topic', Schema);
+  return mongoose.model('post', Schema);
 };

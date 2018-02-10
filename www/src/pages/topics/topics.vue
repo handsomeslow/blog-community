@@ -1,62 +1,47 @@
 <template>
   <div class="topics">
     <!--Info Page-->
-    <transition enter-active-class="animated slideInUp"
-                leave-active-class="animated slideOutDown">
+    <transition enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
       <infoPage v-show="info.isInfoPageShow"></infoPage>
     </transition>
     <!--info page-->
-  
+
     <!--Tabs-->
     <div class="tabs-wrapper">
-      <mu-tabs :value="activeTab"
-               lineClass="active-line"
-               @change="handleTabChange">
-        <mu-tab value="all"
-                title="全部" />
-        <mu-tab value="android"
-                title="android" />
-        <mu-tab value="ios"
-                title="iOS" />
-        <mu-tab value="web"
-                title="前端"></mu-tab>
-        <mu-tab value="python"
-                title="python"></mu-tab>
-        <mu-tab value="nodejs"
-                title="nodejs"></mu-tab>
+      <mu-tabs :value="activeTab" lineClass="active-line" @change="handleTabChange">
+        <mu-tab value="all" title="全部" />
+        <mu-tab value="android" title="android" />
+        <mu-tab value="ios" title="iOS" />
+        <mu-tab value="web" title="前端"></mu-tab>
+        <mu-tab value="python" title="python"></mu-tab>
+        <mu-tab value="nodejs" title="nodejs"></mu-tab>
       </mu-tabs>
     </div>
     <!--tabs-->
-  
+
     <!--Refresh Control-->
-    <mu-refresh-control :refreshing="common.refresh.isShow"
-                        :trigger="trigger"
-                        @refresh="refresh" />
+    <mu-refresh-control :refreshing="common.refresh.isShow" :trigger="trigger" @refresh="refresh" />
     <!--refresh control-->
 
+    <mu-float-button class="add-float" icon="add" @click.stop="addPic">
+      
+    </mu-float-button>
     <!--Content-->
     <div class="content-wrapper">
-      <content-item v-for="list in topics.data"
-                    :list="list"
-                    @info="tapToInfo"
-                    @userInfo="tapToUserInfo"></content-item>
+      <content-item v-for="list in topics.data" :list="list" @info="tapToInfo" @userInfo="tapToUserInfo"></content-item>
     </div>
     <!--content-->
-  
+
     <!--Infinite Scroll-->
-    <mu-infinite-scroll loadingText="正在加载..."
-                        :scroller="scroller"
-                        :loading="topics.isFetching"
-                        @load="loadMore" />
+    <mu-infinite-scroll loadingText="正在加载..." :scroller="scroller" :loading="topics.isFetching" @load="loadMore" />
     <!--infinite scroll-->
-  
+
     <!--No More Data-->
     <noMoreData v-if="this.topics.noMoreData"></noMoreData>
     <!--no more data-->
-  
+
     <!--Error Data-->
-    <noMoreData v-if="this.topics.errData"
-                title="网络出错了，稍后再试"></noMoreData>
+    <noMoreData v-if="this.topics.errData" title="网络出错了，稍后再试"></noMoreData>
     <!--error data-->
   </div>
 </template>
@@ -66,8 +51,9 @@ import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import infoPage from '../../components/infoPage/infoPage'
 import contentItem from '../../components/contentItem/contentItem'
 import noMoreData from '../../components/noMoreData/noMoreData'
+
 export default {
-  data () {
+  data() {
     return {
       // ----- tabs
       activeTab: 'all',
@@ -75,14 +61,15 @@ export default {
       scroller: null,
       page: 1,
       // ----- refresh control
-      trigger: null
+      trigger: null,
+      imgUrls:[]
     }
   },
-  mounted () {
+  mounted() {
     this.scroller = this.$el;
     this.trigger = this.$el;
   },
-  created () {
+  created() {
     // 初始化第一组数据；
     // 加入条件判断，只有 data 数组为空时发送请求；
     // 否则跳转到其他页面，再回来时会重复请求
@@ -90,6 +77,7 @@ export default {
       this.http(null, 1, 15);
       this.page = 1;
     }
+    this.upload();
   },
   computed: {
     ...mapState([
@@ -98,7 +86,7 @@ export default {
       'user',
       'common'
     ]),
-    topicsDataLen () {
+    topicsDataLen() {
       return this.topics.data.length
     }
   },
@@ -119,7 +107,7 @@ export default {
     ]),
     // 切换 tabs
     // ========
-    handleTabChange (val) {
+    handleTabChange(val) {
       this.activeTab = val;     // 切换选项卡
       this.CLEAR_STATE_DATA();  // 清楚历史数据
 
@@ -158,18 +146,18 @@ export default {
     },
     // 公共请求方法
     // ==========
-    http (tab, page, limit, isRefresh) {
+    http(tab, page, limit, isRefresh) {
       this.$store.dispatch('fetchTopicsAction', {
         tab, page, limit, isRefresh
       })
     },
     // 上拉加载更多
     // ==========
-    loadMore () {
+    loadMore() {
       if (!this.topics.isFetching && !this.topics.noMoreData) {
         this.page += 1;
         var tabname = this.activeTab;
-        if(tabname==='all') {
+        if (tabname === 'all') {
           tabname = null;
         }
         this.http(tabname, this.page, 20);
@@ -177,10 +165,10 @@ export default {
     },
     // 下拉刷新
     // =======
-    refresh () {
+    refresh() {
       this.CLEAR_STATE_DATA();
       var tabname = this.activeTab;
-      if(tabname==='all') {
+      if (tabname === 'all') {
         tabname = null;
       }
       this.http(tabname, 1, 20, true);
@@ -188,7 +176,7 @@ export default {
     },
     // 跳转详情页
     // ========
-    tapToInfo (topicid, userid) {
+    tapToInfo(topicid, userid) {
       this.SHOW_MAIN_OVERFLOW();
       this.TOGGLE_INFO_PAGE_DISPLAY();
       this.$store.commit('COMMIT_ID', {
@@ -206,8 +194,8 @@ export default {
     },
     // 检查该文章是否被收藏
     // ================
-    checkCollected (collectedArr, topicid) {
-      function contains (arr, obj) {
+    checkCollected(collectedArr, topicid) {
+      function contains(arr, obj) {
         let i = arr.length;
         while (i--) {
           if (arr[i]._id === obj) {
@@ -225,7 +213,7 @@ export default {
     },
     // 跳转用户详情页
     // ============
-    tapToUserInfo (topicid, userid, username) {
+    tapToUserInfo(topicid, userid, username) {
       alert(username)
     }
   }
@@ -238,6 +226,11 @@ export default {
 .topics {
   position: relative;
   background: $ExtraLightGray;
+  .add-float {
+    position: fixed;
+    bottom: 1.48rem;
+    right: 0.48rem;
+  }
   .mu-circle {
     border-top-color: $primary !important;
     border-right-color: $primary !important;

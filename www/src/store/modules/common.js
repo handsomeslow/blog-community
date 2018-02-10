@@ -21,7 +21,7 @@ const common = {
         },
         // ----- bottom nav
         bottomnav: {
-            active: 'topics'
+            active: 'news'
         },
         // ----- main overflow
         isHideMainOverflow: false

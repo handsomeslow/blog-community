@@ -5,10 +5,16 @@ import user from '../pages/user/user.vue'
 import register from '../pages/register/register.vue'
 import usertopics from '../pages/user/children/usertopics/usertopics.vue'
 import message from '../pages/message/message.vue'
+import news from '../pages/news/news.vue'
 
 Vue.use(Router)
 
 const routes = [
+  {
+    name: 'news',
+    path: '/news/:title',
+    component: news
+  },
   {
     name: 'topics',
     path: '/topics/:title',
@@ -42,6 +48,6 @@ const router = new Router({
   routes
 })
 
-router.push({name: 'topics', params: {title: '话题'}})
+router.push({name: 'news', params: {title: '头条'}})
 
 export default router
