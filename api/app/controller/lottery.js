@@ -10,21 +10,21 @@ class Controller extends BaseController {
 
   * getInfo() {
     const { ctx, service } = this;
-    var file=".\\data\\lotteryInfo.json";
+    var file="./data/lotteryInfo.json";
     var result=JSON.parse(fs.readFileSync( file));
     ctx.done(result);
   }
 
   * prizeInfo() {
     const { ctx, service } = this;
-    var file=".\\data\\prizeInfo.json";
+    var file="./data/prizeInfo.json";
     var result=JSON.parse(fs.readFileSync( file));
     ctx.done(result);
   }
 
   * recordInfo() {
     const { ctx, service } = this;
-    var file=".\\data\\lotteryRecord.json";
+    var file="./data/lotteryRecord.json";
     var result=JSON.parse(fs.readFileSync( file));
     ctx.done(result);
   }
