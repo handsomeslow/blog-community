@@ -31,7 +31,7 @@ module.exports = app => {
 
   	async updateConfig() {
   		const ticket = await app.wechatApi.getLatestTicket();
-  		return token;
+  		return ticket;
   	}
 
     async getsignature(url) {
