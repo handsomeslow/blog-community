@@ -50,7 +50,7 @@ module.exports = app => {
       //console.log('ticket:'+jsapi_ticket.ticket)
 	  var ret = {
 	    jsapi_ticket: jsapi_ticket.ticket,
-	    nonceStr: this.createNonceStr(),
+	    noncestr: this.createNonceStr(),
 	    timestamp: this.createTimestamp(),
 	    url: url
 	  };
