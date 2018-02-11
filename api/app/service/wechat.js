@@ -58,7 +58,7 @@ module.exports = app => {
 	  var string = this.raw(ret);
 	  //console.log('str : '+string);
 	  ret.signature = sha1(string);
-	  ret.appId = 'wx42de759006668be8';
+	  ret.appId = 'wx9c872b0d6f5731b5';
 	  return ret;
     }
   }

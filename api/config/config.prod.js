@@ -35,7 +35,7 @@ module.exports = {
     options: {}
   },
   wechatApi: {
-    appId: 'wx42de759006668be8',
-    appSecret: '896eb286abff6a182b3b7dc960693255'
+    appId: 'wx9c872b0d6f5731b5',
+    appSecret: '36060824753c3b03f03235e5cbd950df'
   }
 };
