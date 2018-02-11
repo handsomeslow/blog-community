@@ -17,7 +17,9 @@ module.exports = app => {
   // test
   app.get(couple_api_version+'test', app.controller.test.test);
   app.post(couple_api_version+'wechat/getsignature', app.controller.wechat.getsignature);
+  app.get(couple_api_version+'wechat/usign', app.controller.wechat.updateConfig);
 
+  
   app.delete('blog_api.session', couple_api_version+'session', 'session.destroy');
   app.resources('blog_api.session', couple_api_version+'session', 'session');
   app.resources('blog_api.token', couple_api_version+'token', 'token');

@@ -30,8 +30,7 @@ module.exports = app => {
 	}
 
   	async updateConfig() {
-  		const token = await app.wechatApi.getToken();
-  		const ticket = await app.wechatApi.getTicket();
+  		const ticket = await app.wechatApi.getLatestTicket();
   		return token;
   	}
 
