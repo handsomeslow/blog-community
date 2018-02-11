@@ -15,5 +15,11 @@ class Controller extends BaseController {
     const models = yield service.wechat.getsignature(url);
     ctx.done(models);
   }
+
+  * updateConfig() {
+    const { ctx, service } = this;
+    const models = yield service.wechat.updateConfig();
+    ctx.done(models);
+  }
 }
 module.exports = Controller;
