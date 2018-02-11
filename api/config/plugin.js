@@ -33,5 +33,5 @@ exports.nunjucks = {
 };
 exports.wechatApi = {
   enable: true,
-  package: 'egg-wechat-api',
+  package: 'egg-wechat-api'
 };

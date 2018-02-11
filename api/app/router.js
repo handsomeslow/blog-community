@@ -15,8 +15,8 @@ const couple_api_version = '/couple/v1/'
 
 module.exports = app => {
   // test
-  app.get('test', app.controller.test.test);
-  app.get('wechat', app.controller.wechat.test);
+  app.get(couple_api_version+'test', app.controller.test.test);
+  app.post(couple_api_version+'wechat/getsignature', app.controller.wechat.getsignature);
 
   app.delete('blog_api.session', couple_api_version+'session', 'session.destroy');
   app.resources('blog_api.session', couple_api_version+'session', 'session');

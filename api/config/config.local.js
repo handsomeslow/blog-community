@@ -28,4 +28,8 @@ module.exports = {
     url: mongodb_host,
     options: {},
   },
+  wechatApi: {
+    appId: 'wx42de759006668be8',
+    appSecret: '896eb286abff6a182b3b7dc960693255'
+  }
 };
